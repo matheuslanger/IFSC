@@ -1,0 +1,43 @@
+/**********************************
+* Conversor de unidades
+* Autor: Matheus Araujo Langer
+* Versão: 1.0
+* IFSC - 08/08/2019
+***********************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()  {
+
+    int conv, volta = 1;
+    float uni, kg, km;
+    while (volta == 1){
+    printf("Qual conversao deseja fazer? Digite 1 para libras -> kg e 2 para milhas -> km ou digite 0 para sair\n");
+    scanf("%d", &conv);
+    if(conv == 0){
+        printf("Saindo...\n");
+        return 0;
+    }
+    if(conv == 1){
+        printf("Digite o valor da unidade em libras para converter em kg\n");
+        scanf("%f", &uni);
+        kg = uni/2.205;
+        printf("O valor em kg e %f\n", kg);
+    }
+
+    else if(conv == 2){
+        printf("Digite o valor da unidade em milhas para converter em km\n");
+        scanf("%f", &km);
+        km = uni*1.6093;
+        printf("O valor em km e %f\n", km);
+    }
+
+    printf("Deseja fazer mais uma conversao? Digite 1 para continuar e 0 para sair\n");
+    scanf("%d", &volta);
+}
+
+
+
+    return 0;
+
+}
