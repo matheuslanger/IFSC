@@ -1,0 +1,75 @@
+/***********************************
+
+* Conversor de Unidades
+* Autor: José Vitor Sant'Ana
+* Versao: 1 José Vitor Sant'Ana
+* Versão: 2 Leandro Knies Souza
+* Versão: 3 Luara Pacini
+* Versão: 4 Matheus Araujo Langer
+* IFSC - Florianopolis
+
+**********************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	float valor;
+	const float libra = 2.205;
+	int volta=0, escolha;
+	float conta;
+	const float milha = 1.609;
+	const float Kcal = 4.1868;
+
+
+	while (volta == 0)
+	{
+    	printf("Escolha 1 para transformar libras para quilos, 2 para milhas para km, 3 para Kcal em Kj, 4 para quilos para libra,  5 para km para milhas e 6 para kj para kcal\n");
+    	scanf("%d", &escolha);
+        switch (escolha){
+    	case 1:
+        	printf("Digite o seu peso em libras para ser convertido\n");
+        	scanf("%f", &valor);
+        	conta = valor/libra;
+        	printf("%f\n", conta);
+        	break;
+
+    	case 2:
+        	printf("Digite a sua distancia em milhas para ser convertido\n");
+        	scanf("%f", &valor);
+        	conta = valor * milha;
+        	printf("%f\n", conta);
+            break;
+    	case 3:
+        	printf("Digite a temperatura em Kcal para ser convertida\n");
+        	scanf("%f", &valor);
+        	conta = valor * Kcal;
+        	printf("%f\n", conta);
+            break;
+    	case 4:
+            printf("Digite o seu peso em quilos para ser convertido\n");
+        	scanf("%f", &valor);
+        	conta = valor*libra;
+        	printf("%f\n", conta);
+            break;
+        case 5:
+        	printf("Digite a sua distancia em km para ser convertido\n");
+        	scanf("%f", &valor);
+        	conta = valor / milha;
+        	printf("%f\n", conta);
+            break;
+    	case 6:
+        	printf("Digite a temperatura em kj para ser convertida\n");
+        	scanf("%f", &valor);
+        	conta = valor / Kcal;
+        	printf("%f\n", conta);
+            break;
+        default:
+            printf("Operacao invalida\n");
+        }
+    	printf("Digite 0 para digitar mais valores\n");
+    	scanf("%d", &volta);
+	}
+	return 0;
+}
