@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char dec[10], nome[30];
+    printf("Digite seu nome:");
+    scanf("%s", nome);
+    printf("Voce e %s, um naufrago em uma vasta ilha deserta que acorda apos um acidente \nde aviao\n", nome);
+    fgets(dec, sizeof(dec), stdin);
+
+
+
+    return 0;
+}
