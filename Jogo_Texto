@@ -1,14 +1,45 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-int main()
-{
-    char dec[10], nome[30];
-    printf("Digite seu nome:");
+
+int main()  {
+    char dec[10], nome[20];
+    int val = 1;
+    printf("Digite seu nome:\n");
     scanf("%s", nome);
-    printf("Voce e %s, um naufrago em uma vasta ilha deserta que acorda apos um acidente \nde aviao\n", nome);
-    fgets(dec, sizeof(dec), stdin);
+    printf("%s, voce se encontra em uma caverna deserta, onde possui\nduas direcoes para seguir, norte ou leste\n", nome);
+    printf("para onde quer seguir?\n");
+    scanf("%s", dec);
+    if (strcmp(dec, "norte") == 0 || strcmp(dec, "Norte") == 0){
+        printf("Voce encontrou a saida da caverna, apos sair\nvoce se depara com uma floresta a oeste ");
+        printf("e um canion a leste\npara onde deseja seguir?\n");
+        scanf("%s", dec);
+        if (strcmp(dec, "Oeste") == 0 || strcmp(dec, "oeste") == 0){
+            printf("Ao adentrar na floresta voce observa uma alcateia de lobos");
+            printf("\nvoce deseja interagir?\n");
+            scanf("%s", dec);
+                if (strcmp(dec, "Sim") == 0 || strcmp(dec, "sim") == 0){
+                    printf("Ao interagir com uma alcateia de lobos famintos, voce\n");
+                    printf("e devorado vivo. Fim\n");
+                }
+                else if (strcmp(dec, "Nao") == 0 || strcmp(dec, "nao") == 0){
+                    printf("Voce decide evitar a alcateia e acaba morrendo\n");
+                    printf("de fome apos 2 dias. Fim\n");
+                }
+        }
+        else if (strcmp(dec, "Leste") == 0 || strcmp(dec, "leste") == 0){
+            printf("Ao chegar perto do canion voce acaba escorregando e fica preso, sem alternativa\nvoce comeca a explorar o canion");
+            printf("e acaba entrando nas profundezas do inferno onde passa sua eternidade. Fim");
+        }
 
+    }
+    else if (strcmp(dec, "leste") == 0 || strcmp(dec, "Leste") == 0){
+        printf("Ao pisar em uma rocha solta, voce se desequilibra e cai em um buraco\n");
+        printf("voce acaba morrendo de sede 2 dias depois. Fim\n");
+    }
+    else {
+        printf("comando invalido");
 
-
+    }
     return 0;
 }
