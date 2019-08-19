@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int dec;
+float s, p, resp;
+
+float area_circ(float r){
+    return (M_PI * pow(r, 2));
+}
+
+float comp_circ(float r){
+    return (2 * M_PI * r);
+}
+
+float dist_cart(float xa, float xb, float ya, float yb){
+    return (sqrt(pow((xb - xa), 2) + pow((yb - ya), 2)));
+}
+
+float vel_ms(float kmh){
+    return (kmh / 3.6);
+}
+
+float res(float R1, float R2, char esc[]){
+    if (strcmp(esc, "serie") == 0 || strcmp(esc, "Serie") == 0){
+        resp = (R1 + R2);
+    }
+    if (strcmp(esc, "paralelo") == 0 || strcmp(esc, "Paralelo") == 0){
+        resp = (R1*R2)/(R1+R2);
+    }
+    return resp;
+}
+
+int main() {
+    int i = 1;
+    float r, xa, ya, xb, yb, kmh, R1, R2;
+    char esc[9];
+    printf("(1) Area do circulo\n(2) Comprimento da circunferencia\n(3) distancia entre dois pontos no plano cartesiano\n(4) km/s para m/s\n(5) Associacao de dois resistores\n");
+    scanf("%d", &dec);
+    switch (dec) {
+    case 1:
+        printf("Digite o valor do raio\n");
+        scanf("%f", &r);
+        printf("%f\n", area_circ(r));
+        break;
+    case 2:
+        printf("Digite o valor do raio\n");
+        scanf("%f", &r);
+        printf("%f\n", comp_circ(r));
+        break;
+    case 3:
+        printf("Digite a coordenada de xa, xb, ya e yb\n");
+        scanf("%f", &xa);
+        scanf("%f", &xb);
+        scanf("%f", &ya);
+        scanf("%f", &yb);
+        printf("%f\n", dist_cart(xa, xb, ya, yb));
+        break;
+    case 4:
+        printf("Digite a velocidade em km/h:\n");
+        scanf("%f", &kmh);
+        printf("%f\n", vel_ms(kmh));
+        break;
+    case 5:
+        printf("Digite o valor de R1 e R2\n");
+        scanf("%f", &R1);
+        scanf("%f", &R2);
+        printf("Voce deseja fazer a associacao em serie ou paralelo?\n");
+        scanf("%s", esc);
+        printf("%f\n", res(R1, R2, esc));
+        break;
+        }
+    return 0;
+}
