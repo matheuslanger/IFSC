@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <math.h>
+
+float media(float vet[], int tam){
+    int i;
+    for(i = 0; i < tam; i++){
+        vet[0] += vet[i];
+    }
+    vet[0] = vet[0]/tam;
+    return vet[0];
+
+}
+
+int main() {
+    float val[4] = {8, 5, 4, 9};
+    int com;
+    scanf("%d", &com);
+    printf("%f", media(val, com));
+    return 0;
+}
