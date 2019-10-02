@@ -12,7 +12,7 @@ int main()  {
     float angulo_graus=30;
     float result;
     result=seno_graus(angulo_graus);
-//Testes
+    //Testes
     printf("30 graus: %f rad\n", grau2rad(30));
     printf("3 elevado ao cubo: %.2f\n", potencia(3,3));
     printf("Fatorial de 5: %d\n", fatorial(5));
@@ -42,7 +42,6 @@ int fatorial(int n){
 }
 
 double seno_graus(double ang){
-    double sin;
-    sin = ang - (potencia(ang, 3)/fatorial(3)) + (potencia(ang, 5)/fatorial(5)) - (potencia(ang, 7)/fatorial(7)) + (potencia(ang, 11)/fatorial(11));
-    return sin;
+    double rad = grau2rad(ang);
+    return rad - ((potencia(rad, 3))/fatorial(3)) + ((potencia(rad, 5))/fatorial(5)) - ((potencia(rad, 7))/fatorial(7)) + ((potencia(rad, 11))/fatorial(11));
 }
