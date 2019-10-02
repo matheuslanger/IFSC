@@ -1,0 +1,48 @@
+/******************************************************
+ Funções para cálculo do seno com série de potências
+ Não usa math.h
+******************************************************/
+#include <stdio.h>
+const double PI=3.14159265359;
+double grau2rad(double grau);
+double potencia(double base, double exp);
+int fatorial(int n);
+double seno_graus(double ang);
+int main()  {
+    float angulo_graus=30;
+    float result;
+    result=seno_graus(angulo_graus);
+//Testes
+    printf("30 graus: %f rad\n", grau2rad(30));
+    printf("3 elevado ao cubo: %.2f\n", potencia(3,3));
+    printf("Fatorial de 5: %d\n", fatorial(5));
+    printf("Seno de %.3f e %.3f\n", angulo_graus, result);
+    return 0;
+}
+
+double grau2rad(double grau){
+    return (grau*PI)/180;
+}
+
+double potencia(double base, double exp){
+    int i;
+    double res = base;
+    for (i = 0; i < exp-1; i++){
+        res *= base;
+    }
+    return res;
+}
+
+int fatorial(int n){
+    int i;
+    for (i = (n-1); i > 0; i--){
+        n *= i;
+    }
+    return n;
+}
+
+double seno_graus(double ang){
+    double sin;
+    sin = ang - (potencia(ang, 3)/fatorial(3)) + (potencia(ang, 5)/fatorial(5)) - (potencia(ang, 7)/fatorial(7)) + (potencia(ang, 11)/fatorial(11));
+    return sin;
+}
