@@ -42,6 +42,11 @@ int fatorial(int n){
 }
 
 double seno_graus(double ang){
+    int s = -1, k = 3;
     double rad = grau2rad(ang);
-    return rad - ((potencia(rad, 3))/fatorial(3)) + ((potencia(rad, 5))/fatorial(5)) - ((potencia(rad, 7))/fatorial(7)) + ((potencia(rad, 11))/fatorial(11));
+    for (k = 3; k < 12; k+=2){
+        rad += s * ((potencia(rad, k))/fatorial(k));
+        s = -s;
+    }
+    return rad;
 }
